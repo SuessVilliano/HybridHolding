@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: 215 28% 9%; /* #0A0E1A */
+  --foreground: 210 40% 98%; /* #F8FAFC */
+  --muted: 215 20% 65%; /* #94A3B8 */
+  --muted-foreground: 215 20% 65%; /* #94A3B8 */
+  --popover: 215 28% 17%; /* #1A1F2E */
+  --popover-foreground: 210 40% 98%; /* #F8FAFC */
+  --card: 215 28% 17%; /* #1A1F2E */
+  --card-foreground: 210 40% 98%; /* #F8FAFC */
+  --border: 215 20% 20%; /* #2D3748 */
+  --input: 215 20% 20%; /* #2D3748 */
+  --primary: 217 91% 60%; /* #2563EB */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --secondary: 215 28% 17%; /* #1A1F2E */
+  --secondary-foreground: 210 40% 98%; /* #F8FAFC */
+  --accent: 158 64% 52%; /* #10B981 */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  --ring: 217 91% 60%; /* #2563EB */
+  --radius: 0.5rem;
+  
+  /* Custom colors */
+  --accent-blue: 217 91% 60%; /* #2563EB */
+  --accent-green: 158 64% 52%; /* #10B981 */
+  --accent-gold: 43 96% 56%; /* #F59E0B */
+  --text-light: 210 40% 98%; /* #F8FAFC */
+  --text-muted: 215 20% 65%; /* #94A3B8 */
+}
+
+.dark {
+  --background: 215 28% 9%; /* #0A0E1A */
+  --foreground: 210 40% 98%; /* #F8FAFC */
+  --muted: 215 20% 65%; /* #94A3B8 */
+  --muted-foreground: 215 20% 65%; /* #94A3B8 */
+  --popover: 215 28% 17%; /* #1A1F2E */
+  --popover-foreground: 210 40% 98%; /* #F8FAFC */
+  --card: 215 28% 17%; /* #1A1F2E */
+  --card-foreground: 210 40% 98%; /* #F8FAFC */
+  --border: 215 20% 20%; /* #2D3748 */
+  --input: 215 20% 20%; /* #2D3748 */
+  --primary: 217 91% 60%; /* #2563EB */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --secondary: 215 28% 17%; /* #1A1F2E */
+  --secondary-foreground: 210 40% 98%; /* #F8FAFC */
+  --accent: 158 64% 52%; /* #10B981 */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  --ring: 217 91% 60%; /* #2563EB */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  }
+  
+  .glass-card {
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .hero-bg {
+    background: linear-gradient(135deg, #0A0E1A 0%, #1A1F2E 100%);
+  }
+  
+  .text-accent-blue {
+    color: hsl(var(--accent-blue));
+  }
+  
+  .text-accent-green {
+    color: hsl(var(--accent-green));
+  }
+  
+  .text-accent-gold {
+    color: hsl(var(--accent-gold));
+  }
+  
+  .bg-accent-blue {
+    background-color: hsl(var(--accent-blue));
+  }
+  
+  .bg-accent-green {
+    background-color: hsl(var(--accent-green));
+  }
+  
+  .bg-accent-gold {
+    background-color: hsl(var(--accent-gold));
+  }
+  
+  .border-accent-blue {
+    border-color: hsl(var(--accent-blue));
+  }
+  
+  .border-accent-green {
+    border-color: hsl(var(--accent-green));
+  }
+  
+  .border-accent-gold {
+    border-color: hsl(var(--accent-gold));
+  }
+  
+  .stats-counter {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
