@@ -11,7 +11,7 @@ export default function PortfolioSection() {
   const mainPlatforms = [
     {
       icon: BarChart3,
-      title: "HybridFunding.co",
+      title: "Hybrid Funding",
       subtitle: "The Flagship Prop Firm",
       description: "A proprietary trading firm offering retail traders funded accounts, challenge programs, and live capital backed by institutional-grade risk systems and AI risk modeling.",
       features: [
@@ -19,11 +19,12 @@ export default function PortfolioSection() {
         "Simulated assessments with live tracking",
         "Funded in Forex, Futures, Crypto"
       ],
-      color: "text-accent-green bg-accent-green"
+      color: "text-accent-green bg-accent-green",
+      href: "https://hybridfunding.co"
     },
     {
       icon: Users,
-      title: "TradeHybrid.club",
+      title: "Trade Hybrid Club",
       subtitle: "Our Community Hub",
       description: "A social platform and financial education network for thousands of modern traders. Includes webinars, masterclasses, live sessions, and mentorships.",
       features: [
@@ -31,7 +32,8 @@ export default function PortfolioSection() {
         "Live chat, rooms, badges, ranks",
         "24/7 global trading tribe"
       ],
-      color: "text-accent-blue bg-accent-blue"
+      color: "text-accent-blue bg-accent-blue",
+      href: "https://tradehybrid.club"
     },
     {
       icon: Settings,
@@ -43,7 +45,8 @@ export default function PortfolioSection() {
         "Copy trading pipelines",
         "Smart trading bots and scripts"
       ],
-      color: "text-accent-gold bg-accent-gold"
+      color: "text-accent-gold bg-accent-gold",
+      href: "https://pro.tradehybrid.club"
     },
     {
       icon: Trophy,
@@ -55,7 +58,8 @@ export default function PortfolioSection() {
         "Real-time performance tracking",
         "Auto-synced with funded trader data"
       ],
-      color: "text-accent-green bg-accent-green"
+      color: "text-accent-green bg-accent-green",
+      href: "https://battles.hybridfunding.co"
     }
   ];
 
@@ -107,30 +111,32 @@ export default function PortfolioSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <Card className="glass-card rounded-2xl p-8 group hover:transform hover:scale-105 transition-all duration-300 h-full">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-6">
-                    <div className={`w-12 h-12 ${platform.color.split(' ')[1]} rounded-xl flex items-center justify-center mr-4`}>
-                      <platform.icon className="text-white text-xl" />
+              <a href={platform.href} target="_blank" rel="noopener noreferrer">
+                <Card className="glass-card rounded-2xl p-8 group hover:transform hover:scale-105 transition-all duration-300 h-full cursor-pointer">
+                  <CardContent className="p-0">
+                    <div className="flex items-center mb-6">
+                      <div className={`w-12 h-12 ${platform.color.split(' ')[1]} rounded-xl flex items-center justify-center mr-4`}>
+                        <platform.icon className="text-white text-xl" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold">{platform.title}</h3>
+                        <p className={platform.color.split(' ')[0]}>{platform.subtitle}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold">{platform.title}</h3>
-                      <p className={platform.color.split(' ')[0]}>{platform.subtitle}</p>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground mb-6">
-                    {platform.description}
-                  </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {platform.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <Check className={`${platform.color.split(' ')[0]} mr-2 h-4 w-4`} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                    <p className="text-muted-foreground mb-6">
+                      {platform.description}
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {platform.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center">
+                          <Check className={`${platform.color.split(' ')[0]} mr-2 h-4 w-4`} />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>
