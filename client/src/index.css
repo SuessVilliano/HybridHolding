@@ -125,6 +125,23 @@
   .stats-counter {
     font-variant-numeric: tabular-nums;
   }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .mission-3d-card {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  .mission-3d-card:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+  }
 }
 
 @keyframes float {
