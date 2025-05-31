@@ -97,8 +97,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
-              alt="Modern trading floor with financial data displays"
+              src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
+              alt="Digital financial technology and AI infrastructure visualization"
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
           </motion.div>

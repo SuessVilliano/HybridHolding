@@ -35,7 +35,7 @@ export default function PortfolioSection() {
     },
     {
       icon: Settings,
-      title: "Pro.TradeHybrid.club",
+      title: "Trade Hybrid Pro",
       subtitle: "Advanced Tools & Terminal",
       description: "Premium dashboards and trader utilities, including automation tools, analytics, indicators, and portfolio builders — all powered by AI and smart APIs.",
       features: [
@@ -47,7 +47,7 @@ export default function PortfolioSection() {
     },
     {
       icon: Trophy,
-      title: "Battles.HybridFunding.co",
+      title: "Trade House Battles",
       subtitle: "Gamified Trading Competitions",
       description: "A bracket-style battle arena for traders to prove their edge in real time. Think March Madness for market wizards — with rankings, rewards, and reputation on the line.",
       features: [
@@ -62,8 +62,9 @@ export default function PortfolioSection() {
   const developmentAssets = [
     {
       icon: Brain,
-      title: "GhostTrading.ai",
-      description: "AI-mirrored trading from top performers",
+      title: "Market Buddy AI",
+      description: "AI-powered market analysis and insights",
+      href: "https://www.marketbuddyai.com",
       color: "text-accent-blue"
     },
     {
@@ -74,15 +75,10 @@ export default function PortfolioSection() {
     },
     {
       icon: Mic,
-      title: "VAPI AI Agents",
-      description: "Virtual agent infrastructure",
+      title: "Trade Hybrid Agents",
+      description: "AI-powered trading assistants",
+      href: "https://tradehybridagents.com",
       color: "text-accent-gold"
-    },
-    {
-      icon: CheckSquare,
-      title: "TaskMagic Systems",
-      description: "Backend automation systems",
-      color: "text-accent-blue"
     }
   ];
 
@@ -147,7 +143,7 @@ export default function PortfolioSection() {
           className="mt-16"
         >
           <h3 className="text-2xl font-bold text-center mb-8">Additional Assets in Development</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {developmentAssets.map((asset, index) => (
               <motion.div
                 key={asset.title}
@@ -155,13 +151,25 @@ export default function PortfolioSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
               >
-                <Card className="text-center p-6 glass-card rounded-xl h-full">
-                  <CardContent className="p-0">
-                    <asset.icon className={`${asset.color} text-3xl mb-4 mx-auto`} />
-                    <h4 className="font-semibold mb-2">{asset.title}</h4>
-                    <p className="text-sm text-muted-foreground">{asset.description}</p>
-                  </CardContent>
-                </Card>
+                {asset.href ? (
+                  <a href={asset.href} target="_blank" rel="noopener noreferrer">
+                    <Card className="text-center p-6 glass-card rounded-xl h-full hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                      <CardContent className="p-0">
+                        <asset.icon className={`${asset.color} text-3xl mb-4 mx-auto`} />
+                        <h4 className="font-semibold mb-2">{asset.title}</h4>
+                        <p className="text-sm text-muted-foreground">{asset.description}</p>
+                      </CardContent>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card className="text-center p-6 glass-card rounded-xl h-full">
+                    <CardContent className="p-0">
+                      <asset.icon className={`${asset.color} text-3xl mb-4 mx-auto`} />
+                      <h4 className="font-semibold mb-2">{asset.title}</h4>
+                      <p className="text-sm text-muted-foreground">{asset.description}</p>
+                    </CardContent>
+                  </Card>
+                )}
               </motion.div>
             ))}
           </div>
