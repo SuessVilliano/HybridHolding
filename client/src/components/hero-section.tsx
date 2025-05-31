@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero-bg min-h-screen flex items-center relative overflow-hidden">
+    <section className="hero-bg min-h-screen flex items-center relative overflow-hidden pt-16 md:pt-0">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -26,14 +26,14 @@ export default function HeroSection() {
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 md:py-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-7xl font-black leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-6">
               Building a <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">Better World</span> Through Fintech Innovation
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
