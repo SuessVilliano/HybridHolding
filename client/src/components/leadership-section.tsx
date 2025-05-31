@@ -58,7 +58,7 @@ export default function LeadershipSection() {
             <Card className="glass-card rounded-2xl p-8 text-center h-full">
               <CardContent className="p-0">
                 <img
-                  src="/attached_assets/sv pic.jpeg"
+                  src="/attached_assets/IMG_6154.jpeg"
                   alt="Jamaur Johnson - Founder & CEO"
                   className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-accent-blue"
                 />
