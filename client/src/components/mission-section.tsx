@@ -192,7 +192,7 @@ export default function MissionSection() {
                 <Heart className="text-white text-2xl" />
               </div>
               <h3 className="text-xl font-bold">Hybrid Holdings Mission</h3>
-              <p className="text-muted-foreground text-sm mt-2">Empowering communities through social impact</p>
+              <p className="text-muted-foreground text-sm mt-2">Empowering communities with fintech</p>
             </motion.div>
 
             {/* Vertical Flow with Arrows */}
