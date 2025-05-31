@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import logoPath from "@assets/IMG_5165.png";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,11 @@ export default function Navigation() {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
   };
 
   const navItems = [
@@ -27,9 +33,19 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-accent-blue to-accent-green bg-clip-text text-transparent">
-              Hybrid Holdings
-            </div>
+            <button 
+              onClick={scrollToTop}
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300"
+            >
+              <img 
+                src={logoPath} 
+                alt="Trade Hybrid Logo" 
+                className="h-10 w-10 rounded-lg"
+              />
+              <div className="text-xl font-bold bg-gradient-to-r from-accent-blue to-accent-green bg-clip-text text-transparent">
+                Hybrid Holdings
+              </div>
+            </button>
           </div>
           
           <div className="hidden md:block">

@@ -34,12 +34,12 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-6">
-              Building a{" "}
+              Empowering{" "}
               <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">
-                Better World
+                Communities
               </span>
               <br />
-              Through Fintech Innovation
+              with Fintech
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
               Hybrid Holdings empowers individuals through financial literacy, innovative trading systems, and sustainable giving. We harness our success to create opportunities for others, investing in affordable housing and community development.
