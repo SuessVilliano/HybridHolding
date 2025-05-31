@@ -70,7 +70,7 @@ export default function MissionSection() {
               "We are not just traders — we are <span className="text-accent-green">change makers</span>."
             </p>
             <p className="text-lg text-muted-foreground">
-              Harnessing financial innovation to empower individuals, provide affordable housing, and end homelessness through sustainable practices and dedicated giving.
+              Harnessing innovation to empower individuals, provide affordable housing, and end homelessness through sustainable practices and dedicated giving.
             </p>
           </div>
         </motion.div>
