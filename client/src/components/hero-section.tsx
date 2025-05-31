@@ -33,10 +33,17 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-6">
-              Building a <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">Better World</span> Through Fintech Innovation
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-6">
+              Building a{" "}
+              <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">
+                Better World
+              </span>{" "}
+              <br className="hidden sm:block" />
+              Through Fintech{" "}
+              <br className="sm:hidden" />
+              Innovation
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
               Hybrid Holdings empowers individuals through financial literacy, innovative trading systems, and sustainable giving. We harness our success to create opportunities for others, investing in affordable housing and community development.
             </p>
             
