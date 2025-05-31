@@ -17,6 +17,7 @@ export default function Footer() {
 
   const companyLinks = [
     { label: "About Us", id: "about" },
+    { label: "Mission", id: "mission" },
     { label: "Investors", id: "investors" },
     { label: "Leadership", id: "leadership" },
     { label: "Contact", id: "contact" }

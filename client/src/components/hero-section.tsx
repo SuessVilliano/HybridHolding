@@ -34,10 +34,10 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl lg:text-7xl font-black leading-tight mb-6">
-              The <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">Powerhouse</span> Behind the Future of Fintech
+              Building a <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">Better World</span> Through Fintech Innovation
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Hybrid Holdings is a next-generation parent company driving growth across a portfolio of proprietary trading, AI infrastructure, and financial technology platforms.
+              Hybrid Holdings empowers individuals through financial literacy, innovative trading systems, and sustainable giving. We harness our success to create opportunities for others, investing in affordable housing and community development.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">

@@ -11,19 +11,19 @@ export default function AboutSection() {
     {
       icon: Bot,
       title: "AI-First Infrastructure",
-      description: "Every product integrates AI as a core driver of decision-making and automation.",
+      description: "Every product integrates AI as a core driver of decision-making, automation, and social impact.",
       color: "text-accent-blue bg-accent-blue"
     },
     {
       icon: TrendingUp,
-      title: "Empowerment Through Technology",
-      description: "We lower barriers for traders and investors to succeed globally.",
+      title: "Financial Empowerment",
+      description: "We provide free educational programs and mentorship to help individuals achieve financial independence.",
       color: "text-accent-green bg-accent-green"
     },
     {
       icon: Rocket,
-      title: "Execution at Scale",
-      description: "We deploy profitable, scalable platforms with real users and revenue.",
+      title: "Social Impact at Scale",
+      description: "We deploy profitable platforms while dedicating resources to affordable housing and community development.",
       color: "text-accent-gold bg-accent-gold"
     }
   ];
@@ -53,11 +53,17 @@ export default function AboutSection() {
               Who We <span className="text-accent-green">Are</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Hybrid Holdings is a Delaware-based private holding company built at the intersection of finance, AI, and automation. We oversee and invest in cutting-edge platforms reshaping the future of trading, wealth-building, and digital community ecosystems.
+              Hybrid Holdings is a Delaware-based private holding company built at the intersection of finance, AI, and social impact. We oversee cutting-edge platforms reshaping trading, wealth-building, and digital communities while dedicating our success to building a better world.
             </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Founded by Jamaur Johnson, a fintech entrepreneur with deep roots in both Wall Street and Main Street, Hybrid Holdings combines the agility of a startup with the power of institutional structure.
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Founded by Jamaur Johnson, our mission extends beyond profit to address critical social challenges including affordable housing, homelessness, and financial literacy. We believe success is only meaningful when it's shared.
             </p>
+            <div className="bg-gradient-to-r from-accent-blue/10 to-accent-green/10 p-6 rounded-xl mb-8">
+              <p className="text-lg font-semibold text-accent-blue mb-2">Our ESG Commitment</p>
+              <p className="text-muted-foreground">
+                We allocate 5-10% of annual profits to affordable housing initiatives, financial education, and homelessness relief programs, proving that financial innovation can drive meaningful social change.
+              </p>
+            </div>
             
             <div className="space-y-4">
               {features.map((feature, index) => (

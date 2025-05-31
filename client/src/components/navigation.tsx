@@ -16,6 +16,7 @@ export default function Navigation() {
 
   const navItems = [
     { label: "About", id: "about" },
+    { label: "Mission", id: "mission" },
     { label: "Portfolio", id: "portfolio" },
     { label: "Investors", id: "investors" },
     { label: "Leadership", id: "leadership" },
