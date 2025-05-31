@@ -35,7 +35,7 @@ export default function HeroSection() {
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-6">
               Empowering{" "}
-              <span className="bg-gradient-to-r from-accent-blue via-accent-green to-accent-gold bg-clip-text text-transparent">
+              <span className="text-accent-blue font-black">
                 Communities
               </span>
               <br />
