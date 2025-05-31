@@ -75,129 +75,162 @@ export default function MissionSection() {
           </div>
         </motion.div>
 
-        {/* 3D Mission Flow Visualization */}
+        {/* Responsive Mission Flow Visualization */}
         <div className="relative mb-20">
-          {/* 3D Container */}
-          <div className="relative perspective-1000 w-full h-96 md:h-[500px] mb-16">
+          {/* Desktop 3D View */}
+          <div className="hidden md:block relative perspective-1000 w-full h-[500px] mb-16">
             {/* Central Hub */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
-              animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : { opacity: 0, scale: 0.8, rotateY: -180 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 1.2, delay: 0.3 }}
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-accent-blue via-accent-green to-accent-gold rounded-full flex items-center justify-center shadow-2xl border-4 border-white/20">
+              <div className="w-40 h-40 bg-gradient-to-br from-accent-blue via-accent-green to-accent-gold rounded-full flex items-center justify-center shadow-2xl border-4 border-white/20">
                 <div className="text-white text-center">
-                  <Heart className="text-3xl md:text-4xl mx-auto mb-2" />
-                  <div className="text-xs md:text-sm font-bold">HYBRID<br />HOLDINGS</div>
+                  <Heart className="text-4xl mx-auto mb-2" />
+                  <div className="text-sm font-bold">HYBRID<br />HOLDINGS</div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Mission Pillars arranged in 3D space */}
+            {/* Connecting Lines */}
+            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
+              <defs>
+                <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(var(--accent-blue))" />
+                  <stop offset="50%" stopColor="hsl(var(--accent-green))" />
+                  <stop offset="100%" stopColor="hsl(var(--accent-gold))" />
+                </linearGradient>
+              </defs>
+              {/* Lines connecting center to each pillar */}
+              <motion.line
+                x1="50%" y1="50%"
+                x2="25%" y2="25%"
+                stroke="url(#line-gradient)"
+                strokeWidth="2"
+                strokeDasharray="8,4"
+                opacity="0.4"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5, delay: 1 }}
+              />
+              <motion.line
+                x1="50%" y1="50%"
+                x2="75%" y2="25%"
+                stroke="url(#line-gradient)"
+                strokeWidth="2"
+                strokeDasharray="8,4"
+                opacity="0.4"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5, delay: 1.2 }}
+              />
+              <motion.line
+                x1="50%" y1="50%"
+                x2="50%" y2="80%"
+                stroke="url(#line-gradient)"
+                strokeWidth="2"
+                strokeDasharray="8,4"
+                opacity="0.4"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5, delay: 1.4 }}
+              />
+            </svg>
+
+            {/* Mission Pillars */}
             {missionPillars.map((pillar, index) => {
               const positions = [
-                { top: '15%', left: '15%', transform: 'rotateX(15deg) rotateY(-30deg)' },
-                { top: '15%', right: '15%', transform: 'rotateX(15deg) rotateY(30deg)' },
-                { bottom: '15%', left: '50%', transform: 'translateX(-50%) rotateX(-15deg)' }
+                { top: '10%', left: '10%' },
+                { top: '10%', right: '10%' },
+                { bottom: '10%', left: '50%', transform: 'translateX(-50%)' }
               ];
               
               return (
                 <motion.div
                   key={pillar.title}
-                  initial={{ opacity: 0, scale: 0.5, rotateX: 90 }}
+                  initial={{ opacity: 0, scale: 0.5, y: 50 }}
                   animate={isInView ? { 
                     opacity: 1, 
                     scale: 1, 
-                    rotateX: 0,
-                    y: [0, -10, 0]
-                  } : { opacity: 0, scale: 0.5, rotateX: 90 }}
+                    y: 0
+                  } : { opacity: 0, scale: 0.5, y: 50 }}
                   transition={{ 
                     duration: 1,
-                    delay: 0.5 + index * 0.2,
-                    y: {
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5
-                    }
+                    delay: 0.5 + index * 0.2
                   }}
-                  className="absolute"
+                  className="absolute z-10"
                   style={positions[index]}
                 >
-                  <Card className="glass-card w-48 md:w-56 p-6 hover:transform hover:scale-110 transition-all duration-500 shadow-xl border border-white/20">
+                  <Card className="glass-card w-56 p-6 hover:transform hover:scale-110 transition-all duration-500 shadow-xl border border-white/20">
                     <CardContent className="p-0 text-center">
                       <div className={`w-12 h-12 ${pillar.color.split(' ')[1]} rounded-xl flex items-center justify-center mx-auto mb-4`}>
                         <pillar.icon className="text-white text-xl" />
                       </div>
                       <h3 className="text-lg font-bold mb-3">{pillar.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        {pillar.description.substring(0, 80)}...
+                        {pillar.description.substring(0, 100)}...
                       </p>
                     </CardContent>
                   </Card>
                 </motion.div>
               );
             })}
-
-            {/* Connecting Lines */}
-            {[0, 1, 2].map((index) => (
-              <motion.div
-                key={`line-${index}`}
-                initial={{ opacity: 0, pathLength: 0 }}
-                animate={isInView ? { opacity: 0.3, pathLength: 1 } : { opacity: 0, pathLength: 0 }}
-                transition={{ duration: 1.5, delay: 1 + index * 0.2 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              >
-                <svg width="400" height="400" className="overflow-visible">
-                  <motion.path
-                    d={`M 200 200 L ${index === 0 ? '50 50' : index === 1 ? '350 50' : '200 350'}`}
-                    stroke="url(#gradient)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="5,5"
-                    initial={{ pathLength: 0 }}
-                    animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                    transition={{ duration: 1.5, delay: 1 + index * 0.2 }}
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(var(--accent-blue))" />
-                      <stop offset="50%" stopColor="hsl(var(--accent-green))" />
-                      <stop offset="100%" stopColor="hsl(var(--accent-gold))" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </motion.div>
-            ))}
           </div>
 
-          {/* Interactive Mission Details */}
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Mobile Vertical Flow */}
+          <div className="md:hidden space-y-8 mb-16">
+            {/* Central Mission Statement */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 1.2 }}
+              className="text-center"
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-accent-blue via-accent-green to-accent-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Heart className="text-white text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold">Hybrid Holdings Mission</h3>
+              <p className="text-muted-foreground text-sm mt-2">Empowering communities through social impact</p>
+            </motion.div>
+
+            {/* Vertical Flow with Arrows */}
             {missionPillars.map((pillar, index) => (
               <motion.div
-                key={`detail-${pillar.title}`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8, delay: 1.5 + index * 0.1 }}
-                className="group"
+                key={`mobile-${pillar.title}`}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+                className="relative"
               >
-                <Card className="glass-card rounded-2xl p-6 h-full hover:transform hover:scale-105 transition-all duration-500 cursor-pointer border border-white/10 hover:border-white/30">
+                <Card className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300">
                   <CardContent className="p-0">
-                    <div className="flex items-center mb-4">
-                      <div className={`w-12 h-12 ${pillar.color.split(' ')[1]} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="flex items-start space-x-4">
+                      <div className={`w-12 h-12 ${pillar.color.split(' ')[1]} rounded-xl flex items-center justify-center flex-shrink-0`}>
                         <pillar.icon className="text-white text-xl" />
                       </div>
-                      <ArrowRight className="text-accent-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold mb-2">{pillar.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {pillar.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-accent-blue transition-colors duration-300">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {pillar.description}
-                    </p>
                   </CardContent>
                 </Card>
+                
+                {/* Arrow pointing to next item */}
+                {index < missionPillars.length - 1 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
+                    transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
+                    className="flex justify-center my-4"
+                  >
+                    <ArrowRight className="text-accent-blue transform rotate-90" size={24} />
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>
